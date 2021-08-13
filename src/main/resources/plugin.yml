@@ -1,0 +1,7 @@
+name: Ban-EM
+version: ${project.version}
+main: bangui.me.duke.Me.Duke
+api-version: 1.17
+commands:
+  banem:
+    description: Use this command to ban players via a handy GUI!
