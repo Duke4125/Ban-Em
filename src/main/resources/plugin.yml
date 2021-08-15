@@ -5,3 +5,5 @@ api-version: 1.17
 commands:
   banem:
     description: Use this command to ban players via a handy GUI!
+  banemreload:
+    description: Reloads Ban-EM ( Use this for chaning the messages in config! )
