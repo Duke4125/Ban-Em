@@ -17,7 +17,7 @@ public final class Duke extends JavaPlugin {
         System.out.println(ChatColor.RED + "BAN EM: Loading mats");
         System.out.println(ChatColor.RED + "BAN EM: Loading Commands");
         System.out.println(ChatColor.RED + "BAN EM: Optimised!");
-        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.2");
+        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.3");
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();

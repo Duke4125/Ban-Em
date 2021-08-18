@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 
 public class BanInvListener implements Listener {
 
@@ -29,10 +30,11 @@ public class BanInvListener implements Listener {
 
             if (e.getCurrentItem().getType() == Material.BARRIER) {
                 BanMenuUtils.openBanMenu(p);
-            }else if (e.getCurrentItem().getType() == Material.WOODEN_AXE){
+            }else if (e.getCurrentItem().getType() == Material.DIAMOND_SWORD){
                 String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
                 p.getServer().getBanList(BanList.Type.NAME).addBan(name, "Banned by ban em!", null, null);
-                p.sendMessage(ChatColor.GREEN + "Banned Player!");
+                p.sendMessage(ChatColor.GREEN + "Banned" + name + "!");
+                System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just banned" + " " + name + "!");
             }
             e.setCancelled(true);
         }

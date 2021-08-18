@@ -3,12 +3,18 @@ package bangui.me.duke.Me.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
+
+import static org.bukkit.Material.DIAMOND_SWORD;
+import static org.bukkit.Material.PLAYER_HEAD;
+
 
 public class BanMenuUtils {
 
@@ -19,7 +25,11 @@ public class BanMenuUtils {
 
         for (Player player : list) {
 
-            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+            ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD);
+            SkullMeta sm = (SkullMeta) playerHead.getItemMeta();
+            sm.setOwningPlayer(player);
+            ItemMeta player_meta = playerHead.getItemMeta();
+            playerHead.setItemMeta(sm);
             ItemMeta meta = playerHead.getItemMeta();
 
             meta.setDisplayName(player.getDisplayName());
@@ -40,7 +50,7 @@ public class BanMenuUtils {
 
 
         //ban them
-        ItemStack ban = new ItemStack(Material.WOODEN_AXE, 1);
+        ItemStack ban = new ItemStack(DIAMOND_SWORD, 1);
         ItemMeta ban_meta = ban.getItemMeta();
         ban_meta.setDisplayName(ChatColor.DARK_BLUE + "BAN");
         ArrayList<String> lore_ban = new ArrayList<>();
@@ -50,13 +60,15 @@ public class BanMenuUtils {
         confirmBanMenu.setItem(0, ban);
 
         //Add player
-        ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+        ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta sm = (SkullMeta) playerHead.getItemMeta();
+        sm.setOwningPlayer(whoToBan);
         ItemMeta player_meta = playerHead.getItemMeta();
-        player_meta.setDisplayName(whoToBan.getDisplayName());
+        sm.setDisplayName(whoToBan.getDisplayName());
         ArrayList<String> lore_com = new ArrayList<>();
         lore_com.add(ChatColor.GREEN + "This is the player you are going to ban!");
-        player_meta.setLore(lore_com);
-        playerHead.setItemMeta(player_meta);
+        sm.setLore(lore_com);
+        playerHead.setItemMeta(sm);
         confirmBanMenu.setItem(4, playerHead);
 
         //Cancel option
