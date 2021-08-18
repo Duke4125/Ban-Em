@@ -2,6 +2,7 @@ package bangui.me.duke.Me.listeners;
 
 import bangui.me.duke.Me.utils.BanMenuUtils;
 import org.bukkit.BanList;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -33,6 +34,7 @@ public class BanInvListener implements Listener {
             }else if (e.getCurrentItem().getType() == Material.DIAMOND_SWORD){
                 String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
                 p.getServer().getBanList(BanList.Type.NAME).addBan(name, "Banned by ban em!", null, null);
+                Bukkit.getPlayer(name).kickPlayer(ChatColor.RED + "Ban em" + " " + name + " " + "Has been removed from the server");
                 p.sendMessage(ChatColor.GREEN + "Banned" + name + "!");
                 System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just banned" + " " + name + "!");
             }
