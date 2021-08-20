@@ -49,7 +49,7 @@ public final class Duke extends JavaPlugin {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.6");
+        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.7");
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();

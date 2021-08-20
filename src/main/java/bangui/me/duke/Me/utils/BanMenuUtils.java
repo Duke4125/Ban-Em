@@ -63,8 +63,7 @@ public class BanMenuUtils {
         ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta sm = (SkullMeta) playerHead.getItemMeta();
         sm.setOwningPlayer(whoToBan);
-        ItemMeta player_meta = playerHead.getItemMeta();
-        sm.setDisplayName(whoToBan.getDisplayName());
+        sm.setDisplayName(ChatColor.WHITE + whoToBan.getDisplayName());
         ArrayList<String> lore_com = new ArrayList<>();
         lore_com.add(ChatColor.GREEN + "This is the player you are going to ban!");
         sm.setLore(lore_com);

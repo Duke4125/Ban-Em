@@ -21,6 +21,7 @@ public class HelpCommand implements CommandExecutor {
 
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
                 p.sendMessage(ChatColor.RED + "Ban-EM Help!");
+                p.sendMessage(ChatColor.WHITE + " ");
                 p.sendMessage(ChatColor.DARK_RED + "Commands:");
                 p.sendMessage(ChatColor.RED + "/banem - opens the banem menu!");
                 p.sendMessage(ChatColor.RED + "/banemreload - reloads the plugin");
