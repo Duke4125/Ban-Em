@@ -1,5 +1,6 @@
 package bangui.me.duke.Me.listeners;
 
+import bangui.me.duke.Me.Duke;
 import bangui.me.duke.Me.utils.BanMenuUtils;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
@@ -15,9 +16,14 @@ import java.util.Map;
 import java.util.UUID;
 
 public class BanInvListener implements Listener {
+    Duke plugin;
+    public BanInvListener(Duke plugin) {
+        this.plugin= plugin;
+    }
 
     @EventHandler
     public void onMenuClick(InventoryClickEvent e) {
+
 
         Player p = (Player) e.getWhoClicked();
 
@@ -54,7 +60,7 @@ public class BanInvListener implements Listener {
                     //kick
             } else if (e.getCurrentItem().getType() == Material.IRON_SWORD) {
                     String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
-                    Bukkit.getPlayer(name).kickPlayer(ChatColor.RED + "Kicked by Ban-EM");
+                    Bukkit.getPlayer(name).kickPlayer(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("KickReason")));
                     p.sendMessage(ChatColor.GREEN + "kicked" + name + "!");
                     System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just kicked" + " " + name + "!");
                     e.setCancelled(true);

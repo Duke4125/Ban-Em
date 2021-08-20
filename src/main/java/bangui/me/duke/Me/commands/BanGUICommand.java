@@ -2,6 +2,7 @@ package bangui.me.duke.Me.commands;
 
 import bangui.me.duke.Me.Duke;
 import bangui.me.duke.Me.utils.BanMenuUtils;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,7 +25,7 @@ public class BanGUICommand implements CommandExecutor {
 
                 BanMenuUtils.openBanMenu(p);
             }else {
-                p.sendMessage(plugin.getConfig().getString("Noperm"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));
             }
         }
         return true;

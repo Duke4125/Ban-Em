@@ -2,14 +2,17 @@
 # IN HERE YOU CAN EDIT THE PLUGIN VIA USING "True" OR "False" Statements!
 # OR YOU CAN USE WORDS WHEN ABOVE THE SETTING IT WILL SAY (S) = String!
 # WARN FEATURE IS NOT WORKING TO FULL STANDORD! THERE MAY BE BUGS!!!!!!!!!
+# USE & CHAT COLORS IN STRINGS!
 
-#(S) - DO NOT USE &colours ATM! As this is not implement!
-Noperm: 'YOU DO NOT HAVE THE PERM TO USE THIS!'
+#(S)
+Noperm: '&cYOU DO NOT HAVE THE PERM TO USE THIS!'
 
 
-#(S) - DO NOT USE &colours ATM! As this is not implement!
-ReloadMessage: 'You have reloaded BanEm!'
+#(S)
+ReloadMessage: '&cYou have reloaded BanEm!'
 
+#(S)
+KickReason:  '&cYou have been kicked!'
 
 
 
@@ -33,5 +36,5 @@ ReloadMessage: 'You have reloaded BanEm!'
 
 #DO NOT CHANGE!
 
-#Config VER: 0.5
-#Plugin VER: 0.5
+#Config VER: 0.6
+#Plugin VER: 0.6s

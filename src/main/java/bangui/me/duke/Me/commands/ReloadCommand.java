@@ -2,6 +2,7 @@ package bangui.me.duke.Me.commands;
 
 
 import bangui.me.duke.Me.Duke;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,9 +24,9 @@ public class ReloadCommand implements CommandExecutor {
             if (p.hasPermission("ban-em.reload")) {
 
                plugin.reloadConfig();
-                p.sendMessage(plugin.getConfig().getString("ReloadMessage"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("ReloadMessage")));
             }else {
-                p.sendMessage(plugin.getConfig().getString("Noperm"));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));
             }
         }
         return true;

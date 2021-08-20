@@ -14,35 +14,35 @@ public final class Duke extends JavaPlugin {
 
         System.out.println(ChatColor.RED + "BAN EM LOADED!");
         try {
-            Thread.sleep(500);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Loading GUI");
         try {
-            Thread.sleep(500);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Loading mats");
         try {
-            Thread.sleep(500);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Loading Commands");
         try {
-            Thread.sleep(500);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Optimised!");
         try {
-            Thread.sleep(500);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.5");
+        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.6");
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
@@ -51,7 +51,7 @@ public final class Duke extends JavaPlugin {
 
         getCommand("BanemReload").setExecutor(new ReloadCommand(this));
 
-        getServer().getPluginManager().registerEvents(new BanInvListener(), this);
+        getServer().getPluginManager().registerEvents(new BanInvListener(this), this);
 
     }
 

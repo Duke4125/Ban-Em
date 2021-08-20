@@ -32,7 +32,7 @@ public class BanMenuUtils {
             playerHead.setItemMeta(sm);
             ItemMeta meta = playerHead.getItemMeta();
 
-            meta.setDisplayName(player.getDisplayName());
+            meta.setDisplayName(ChatColor.WHITE + player.getDisplayName());
             ArrayList<String> lore = new ArrayList<>();
             lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + player.getHealth());
             lore.add(ChatColor.GOLD + "EXP: " + ChatColor.AQUA + player.getExp());
