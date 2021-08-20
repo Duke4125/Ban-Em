@@ -14,35 +14,35 @@ public final class Duke extends JavaPlugin {
 
         System.out.println(ChatColor.RED + "BAN EM LOADED!");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Loading GUI");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Loading mats");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Loading Commands");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println(ChatColor.RED + "BAN EM: Optimised!");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.4");
+        System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.5");
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();

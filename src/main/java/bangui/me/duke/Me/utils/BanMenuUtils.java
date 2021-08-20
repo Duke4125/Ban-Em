@@ -54,7 +54,7 @@ public class BanMenuUtils {
         ItemMeta ban_meta = ban.getItemMeta();
         ban_meta.setDisplayName(ChatColor.DARK_BLUE + "BAN");
         ArrayList<String> lore_ban = new ArrayList<>();
-        lore_ban.add(ChatColor.RED + "BAN EM!!!!!");
+        lore_ban.add(ChatColor.AQUA + "BAN EM!!!!!");
         ban_meta.setLore(lore_ban);
         ban.setItemMeta(ban_meta);
         confirmBanMenu.setItem(0, ban);
@@ -80,6 +80,26 @@ public class BanMenuUtils {
         cancel_meta.setLore(lore_can);
         cancel.setItemMeta(cancel_meta);
         confirmBanMenu.setItem(8, cancel);
+
+        //warns
+        ItemStack warn = new ItemStack(Material.PAPER, 1);
+        ItemMeta warn_meta = cancel.getItemMeta();
+        warn_meta.setDisplayName(ChatColor.GOLD + "WARN");
+        ArrayList<String> lore_war = new ArrayList<>();
+        lore_war.add(ChatColor.YELLOW + "Warn Player - [This feature is not upto date: pls expect bugs/wait for it to work to its fullest!]");
+        warn_meta.setLore(lore_war);
+        warn.setItemMeta(warn_meta);
+        confirmBanMenu.setItem(2, warn);
+
+        //kick player
+        ItemStack kick = new ItemStack(Material.IRON_SWORD, 1);
+        ItemMeta kick_meta = kick.getItemMeta();
+        kick_meta.setDisplayName(ChatColor.DARK_AQUA + "KICK!");
+        ArrayList<String> lore_kik = new ArrayList<>();
+        lore_kik.add(ChatColor.DARK_RED + "Exit back to the player list");
+        kick_meta.setLore(lore_kik);
+        kick.setItemMeta(kick_meta);
+        confirmBanMenu.setItem(1, kick);
 
         p.openInventory(confirmBanMenu);
     }
