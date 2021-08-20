@@ -1,6 +1,7 @@
 package bangui.me.duke.Me;
 
 import bangui.me.duke.Me.commands.BanGUICommand;
+import bangui.me.duke.Me.commands.HelpCommand;
 import bangui.me.duke.Me.listeners.BanInvListener;
 import org.bukkit.ChatColor;
 import bangui.me.duke.Me.commands.ReloadCommand;
@@ -42,14 +43,25 @@ public final class Duke extends JavaPlugin {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println(ChatColor.RED + "Ban EM: Bstats Loaded!");
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(ChatColor.BLUE + "BAN EM: All working! - VER.0.6");
 
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
+        int pluginId = 12511;
+        Metrics metrics = new Metrics(this, pluginId);
+
         getCommand("banem").setExecutor(new BanGUICommand(this));
 
         getCommand("BanemReload").setExecutor(new ReloadCommand(this));
+
+        getCommand("BanemHelp").setExecutor(new HelpCommand(this));
 
         getServer().getPluginManager().registerEvents(new BanInvListener(this), this);
 
