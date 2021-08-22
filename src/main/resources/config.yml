@@ -14,6 +14,9 @@ ReloadMessage: '&cYou have reloaded BanEm!'
 #(S)
 KickReason:  '&cYou have been kicked!'
 
+#(S) - You can not use & in this!
+BanReason: 'You have been struck down by Ban-EM'
+
 
 
 

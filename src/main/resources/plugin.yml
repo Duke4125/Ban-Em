@@ -9,3 +9,5 @@ commands:
     description: Reloads Ban-EM ( Use this for chaning the messages in config! )
   banemhelp:
     description: Gives you the help message!
+  baneminfo:
+    description: Gives you the plugin info!

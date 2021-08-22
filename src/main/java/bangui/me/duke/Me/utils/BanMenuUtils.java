@@ -21,7 +21,7 @@ public class BanMenuUtils {
     public static void openBanMenu(Player p) {
         ArrayList<Player> list = new ArrayList<>(p.getServer().getOnlinePlayers());
 
-        Inventory bangui = Bukkit.createInventory(p, 45, ChatColor.RED + "Player List");
+        Inventory bangui = Bukkit.createInventory(p, 45, ChatColor.WHITE + "[" + ChatColor.RED + "Player List" + ChatColor.WHITE + "]");
 
         for (Player player : list) {
 
@@ -46,7 +46,7 @@ public class BanMenuUtils {
         }
     }
     public static void openConfirmBanMenu(Player p, Player whoToBan) {
-        Inventory confirmBanMenu = Bukkit.createInventory(p, 9, ChatColor.AQUA + "Ban EM");
+        Inventory confirmBanMenu = Bukkit.createInventory(p, 9, ChatColor.WHITE + "[" + ChatColor.AQUA + "Ban EM" + ChatColor.WHITE + "]");
 
 
         //ban them
@@ -85,7 +85,7 @@ public class BanMenuUtils {
         ItemMeta warn_meta = cancel.getItemMeta();
         warn_meta.setDisplayName(ChatColor.GOLD + "WARN");
         ArrayList<String> lore_war = new ArrayList<>();
-        lore_war.add(ChatColor.YELLOW + "Warn Player - [This feature is not upto date: pls expect bugs/wait for it to work to its fullest!]");
+        lore_war.add(ChatColor.YELLOW + "DONT USE! THIS WILL BRAKE THE PLUGIN -" + " WILL WORK IN THE NEXT FEW UPDATES");
         warn_meta.setLore(lore_war);
         warn.setItemMeta(warn_meta);
         confirmBanMenu.setItem(2, warn);
