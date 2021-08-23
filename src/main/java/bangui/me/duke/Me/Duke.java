@@ -18,21 +18,13 @@ If you do any of these you are breaking the TOS and this is a legal issue!
 
 
 
-
-
-
-
-
-
-
-
 package bangui.me.duke.Me;
 
 import bangui.me.duke.Me.commands.BanGUICommand;
 import bangui.me.duke.Me.commands.HelpCommand;
 import bangui.me.duke.Me.commands.InfoCommand;
 import bangui.me.duke.Me.listeners.BanInvListener;
-import org.bukkit.Bukkit;
+import bangui.me.duke.Me.utils.BanMenuUtils;
 import org.bukkit.ChatColor;
 import bangui.me.duke.Me.commands.ReloadCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -89,7 +81,9 @@ public final class Duke extends JavaPlugin {
         int pluginId = 12511;
         Metrics metrics = new Metrics(this, pluginId);
 
-        getCommand("banem").setExecutor(new BanGUICommand(this));
+        BanMenuUtils banMenu = new BanMenuUtils(this);
+
+        getCommand("banem").setExecutor(new BanGUICommand(this, banMenu));
 
         getCommand("BanemReload").setExecutor(new ReloadCommand(this));
 
@@ -97,13 +91,15 @@ public final class Duke extends JavaPlugin {
 
         getCommand("Baneminfo").setExecutor(new InfoCommand(this));
 
-        getServer().getPluginManager().registerEvents(new BanInvListener(this), this);
+        getServer().getPluginManager().registerEvents(new BanInvListener(this, banMenu), this);
+
+
 
         Logger logger = this.getLogger();
 
         new UpdateChecker(this, 95286).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-                logger.info(ChatColor.GREEN + "There is not a new update available.");
+                logger.info(ChatColor.GREEN + "There is no new update atm! You are upto date :)");
             } else {
                 logger.info(ChatColor.RED + "There is a new update available, Download here https://www.spigotmc.org/resources/ban-em-the-easy-ban-gui-plugin.95286/");
                 logger.info(ChatColor.RED + "Why should you update? Keeping the plugin upto date will get you tons of cool features and can fix bugs!");

@@ -6,7 +6,7 @@
 
     <groupId>BanGui</groupId>
     <artifactId>me.Duke</artifactId>
-    <version>0.9</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>Me.Duke</name>

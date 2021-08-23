@@ -3,27 +3,61 @@ package bangui.me.duke.Me.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.bukkit.Material.DIAMOND_SWORD;
-import static org.bukkit.Material.PLAYER_HEAD;
 
 
-public class BanMenuUtils {
 
-    public static void openBanMenu(Player p) {
-        ArrayList<Player> list = new ArrayList<>(p.getServer().getOnlinePlayers());
+public class BanMenuUtils implements Listener {
 
-        Inventory bangui = Bukkit.createInventory(p, 45, ChatColor.WHITE + "[" + ChatColor.RED + "Player List" + ChatColor.WHITE + "]");
+    private JavaPlugin plugin;
+    private List<Inventory> pages;
+    Pattern pattern = Pattern.compile("\\d+");
+    private static ItemStack next = new ItemStack(Material.ARROW);
 
-        for (Player player : list) {
+    static {
+        ItemMeta nextMeta = next.getItemMeta();
+        nextMeta.setDisplayName(ChatColor.DARK_PURPLE + "Next Page");
+        next.setItemMeta(nextMeta);
+    }
+
+    public BanMenuUtils (JavaPlugin plugin) {
+
+        this.plugin = plugin;
+    }
+
+    public boolean isBanGUI(Inventory inv) {
+        return pages.contains(inv);
+    }
+
+    public void openMenu(Player player) {
+
+        pages = new ArrayList<>();
+        Inventory currentPage = newPage();
+        int i = 0;
+
+        for (Player online: Bukkit.getOnlinePlayers()) {
+
+            if (i == 53) {
+                i = 0;
+                currentPage.setItem(53, next);
+                currentPage = newPage();
+            }
 
             ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD);
             SkullMeta sm = (SkullMeta) playerHead.getItemMeta();
@@ -35,16 +69,36 @@ public class BanMenuUtils {
             meta.setDisplayName(ChatColor.WHITE + player.getDisplayName());
             ArrayList<String> lore = new ArrayList<>();
             lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + player.getHealth());
-            lore.add(ChatColor.GOLD + "EXP: " + ChatColor.AQUA + player.getExp());
             meta.setLore(lore);
             playerHead.setItemMeta(meta);
 
-            bangui.addItem(playerHead);
-            {
-                p.openInventory(bangui);
-            }
+            currentPage.addItem(playerHead);
+        }
+
+        if (!pages.isEmpty()) player.openInventory(pages.get(0));
+    }
+
+    private Inventory newPage() {
+
+        Inventory inven = Bukkit.createInventory(null, 54, ChatColor.GREEN + String.format("Players: (Page %d)", pages.size() + 1));
+        pages.add(inven);
+
+        return pages.get(pages.size() - 1);
+    }
+
+    @EventHandler
+    public void onClick(InventoryClickEvent event) {
+
+        if (!next.isSimilar(event.getCurrentItem())) return;
+        if (!pages.contains(event.getClickedInventory())) return;
+
+        Matcher m = pattern.matcher(ChatColor.stripColor(event.getView().getTitle()));
+        if (m.find()) {
+            event.getWhoClicked().openInventory(pages.get(Integer.parseInt(m.group())));
         }
     }
+
+
     public static void openConfirmBanMenu(Player p, Player whoToBan) {
         Inventory confirmBanMenu = Bukkit.createInventory(p, 9, ChatColor.WHITE + "[" + ChatColor.AQUA + "Ban EM" + ChatColor.WHITE + "]");
 
@@ -52,9 +106,9 @@ public class BanMenuUtils {
         //ban them
         ItemStack ban = new ItemStack(DIAMOND_SWORD, 1);
         ItemMeta ban_meta = ban.getItemMeta();
-        ban_meta.setDisplayName(ChatColor.DARK_BLUE + "BAN");
+        ban_meta.setDisplayName(ChatColor.AQUA + "BAN EM!!");
+        ban_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         ArrayList<String> lore_ban = new ArrayList<>();
-        lore_ban.add(ChatColor.AQUA + "BAN EM!!!!!");
         ban_meta.setLore(lore_ban);
         ban.setItemMeta(ban_meta);
         confirmBanMenu.setItem(0, ban);
@@ -74,6 +128,7 @@ public class BanMenuUtils {
         ItemStack cancel = new ItemStack(Material.BARRIER, 1);
         ItemMeta cancel_meta = cancel.getItemMeta();
         cancel_meta.setDisplayName(ChatColor.RED + "EXIT!");
+        cancel_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         ArrayList<String> lore_can = new ArrayList<>();
         lore_can.add(ChatColor.DARK_RED + "Exit back to the player list");
         cancel_meta.setLore(lore_can);
@@ -94,8 +149,8 @@ public class BanMenuUtils {
         ItemStack kick = new ItemStack(Material.IRON_SWORD, 1);
         ItemMeta kick_meta = kick.getItemMeta();
         kick_meta.setDisplayName(ChatColor.DARK_AQUA + "KICK!");
+        kick_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         ArrayList<String> lore_kik = new ArrayList<>();
-        lore_kik.add(ChatColor.DARK_RED + "Exit back to the player list");
         kick_meta.setLore(lore_kik);
         kick.setItemMeta(kick_meta);
         confirmBanMenu.setItem(1, kick);
@@ -103,4 +158,3 @@ public class BanMenuUtils {
         p.openInventory(confirmBanMenu);
     }
 }
-

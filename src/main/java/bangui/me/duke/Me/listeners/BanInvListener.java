@@ -10,16 +10,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerKickEvent;
 
-import java.util.Map;
-import java.util.UUID;
 
 public class BanInvListener implements Listener {
     Duke plugin;
-    public BanInvListener(Duke plugin) {
-        this.plugin= plugin;
+    BanMenuUtils banMenu;
+
+    public BanInvListener(Duke plugin, BanMenuUtils banMenu) {
+        this.plugin = plugin;
+        this.banMenu = banMenu;
     }
+
+
 
     @EventHandler
     public void onMenuClick(InventoryClickEvent e) {
@@ -27,7 +29,7 @@ public class BanInvListener implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getView().getTitle().equalsIgnoreCase(ChatColor.WHITE + "[" + ChatColor.RED + "Player List" + ChatColor.WHITE + "]")) {
+        if (banMenu.isBanGUI(e.getClickedInventory())) {
             if (e.getCurrentItem().getType() == Material.PLAYER_HEAD) {
 
                 Player whoToBan = p.getServer().getPlayerExact(ChatColor.stripColor(e.getCurrentItem().getItemMeta().getDisplayName()));
@@ -40,7 +42,7 @@ public class BanInvListener implements Listener {
         } else if (e.getView().getTitle().equalsIgnoreCase(ChatColor.WHITE + "[" + ChatColor.AQUA + "Ban EM" + ChatColor.WHITE + "]")) {
 
             if (e.getCurrentItem().getType() == Material.BARRIER) {
-                BanMenuUtils.openBanMenu(p);
+                banMenu.openMenu(p);
                 //ban
             } else if (e.getCurrentItem().getType() == Material.DIAMOND_SWORD) {
                 String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());

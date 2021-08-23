@@ -12,23 +12,28 @@ import org.bukkit.entity.Player;
 
 
 public class BanGUICommand implements CommandExecutor {
+
     Duke plugin;
-    public BanGUICommand(Duke plugin){
+    BanMenuUtils  banMenu;
+
+    public BanGUICommand(Duke plugin, BanMenuUtils banMenu) {
         this.plugin = plugin;
+        this.banMenu = banMenu;
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand (CommandSender sender, Command command, String label, String[]args){
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if (p.hasPermission("ban-em.open")) {
 
-                BanMenuUtils.openBanMenu(p);
-            }else {
+                banMenu.openMenu(p);
+            } else {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));
             }
         }
         return true;
     }
 }
+
 
