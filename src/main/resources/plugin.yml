@@ -1,5 +1,5 @@
 name: Ban-EM
-version: ${project.version}
+version: 1.1
 main: bangui.me.duke.Me.Duke
 api-version: 1.17
 commands:

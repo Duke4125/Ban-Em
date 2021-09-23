@@ -68,7 +68,10 @@ public class BanMenuUtils implements Listener {
 
             meta.setDisplayName(ChatColor.WHITE + player.getDisplayName());
             ArrayList<String> lore = new ArrayList<>();
-            lore.add(ChatColor.GOLD + "Player Health: " + ChatColor.RED + player.getHealth());
+            lore.add(ChatColor.WHITE + "Player Health: " + ChatColor.RED + Math.round(player.getHealth()) + "/" +  Math.round(player.getHealthScale()));
+            lore.add(ChatColor.WHITE + "Player Ping: " + ChatColor.RED + player.getPing());
+            lore.add(ChatColor.WHITE + "Player Is op: " + ChatColor.RED + player.isOp());
+            lore.add(ChatColor.WHITE + "Player UUID:" + ChatColor.RED + " " +  player.getUniqueId());
             meta.setLore(lore);
             playerHead.setItemMeta(meta);
 
