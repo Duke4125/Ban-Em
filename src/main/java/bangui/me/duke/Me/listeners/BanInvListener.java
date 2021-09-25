@@ -5,11 +5,16 @@ import bangui.me.duke.Me.utils.BanMenuUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Vector;
 
 
 public class BanInvListener implements Listener {
@@ -22,8 +27,8 @@ public class BanInvListener implements Listener {
     }
 
 
-
     @EventHandler
+
     public void onMenuClick(InventoryClickEvent e) {
         if (e.getCurrentItem().getType() == null) {
             return;
@@ -68,9 +73,31 @@ public class BanInvListener implements Listener {
                     p.playNote(p.getEyeLocation(), Instrument.PIANO, Note.flat(1, Note.Tone.A));
                     e.setCancelled(true);
 
+                } else if (e.getCurrentItem().getType() == Material.INK_SAC) {
+                    String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
+                    Player playerwhoisban = Bukkit.getPlayer(name);
+                    playerwhoisban.addPotionEffect((new PotionEffect(PotionEffectType.BLINDNESS, 20000, 10)));
+                    playerwhoisban.addPotionEffect((new PotionEffect(PotionEffectType.SLOW, 20000, 50)));
+                    playerwhoisban.addPotionEffect((new PotionEffect(PotionEffectType.INVISIBILITY, 20000, 50)));
+                    p.sendMessage(ChatColor.GREEN + "Blinded" + name + "!");
+                    System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just blinded" + " " + name + "!");
+                    p.playNote(p.getEyeLocation(), Instrument.PIANO, Note.flat(1, Note.Tone.A));
+                    //playerwhoisban.setGameMode(GameMode.SPECTATOR);
+                    e.setCancelled(true);
+                } else if (e.getCurrentItem().getType() == Material.EXPERIENCE_BOTTLE) {
+                    String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
+                    Player playerwhoisban = Bukkit.getPlayer(name);
+                    playerwhoisban.removePotionEffect(PotionEffectType.BLINDNESS);
+                    playerwhoisban.removePotionEffect(PotionEffectType.SLOW);
+                    playerwhoisban.removePotionEffect(PotionEffectType.INVISIBILITY);
+                    //playerwhoisban.setGameMode(GameMode.SURVIVAL);
+                    p.sendMessage(ChatColor.GREEN + "Cleansed" + name + "!");
+                    System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just Cleansed" + " " + name + "!");
+                    p.playNote(p.getEyeLocation(), Instrument.PIANO, Note.flat(1, Note.Tone.A));
+                    e.setCancelled(true);
                 }
+                e.setCancelled(true);
             }
         }
-        e.setCancelled(true);
     }
 }

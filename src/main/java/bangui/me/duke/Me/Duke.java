@@ -109,6 +109,6 @@ public final class Duke extends JavaPlugin {
 
 
     public void onDisable() {
-        // Plugin shutdown logic
+        System.out.println(ChatColor.RED + "Ban-EM Closing! Come back soon!");
     }
 }

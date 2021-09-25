@@ -18,10 +18,10 @@ public class InfoCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if (p.hasPermission("ban-em.open")) {
-
+                
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
                 p.sendMessage(ChatColor.RED + "Ban-EM Info!");
-                p.sendMessage(ChatColor.WHITE + "VER 0.9");
+                p.sendMessage(ChatColor.WHITE + "VER 1.1");
                 p.sendMessage(ChatColor.DARK_RED + "");
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
 

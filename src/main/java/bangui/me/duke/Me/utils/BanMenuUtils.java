@@ -3,6 +3,7 @@ package bangui.me.duke.Me.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -121,8 +122,10 @@ public class BanMenuUtils implements Listener {
         SkullMeta sm = (SkullMeta) playerHead.getItemMeta();
         sm.setOwningPlayer(whoToBan);
         sm.setDisplayName(ChatColor.WHITE + whoToBan.getDisplayName());
+        String playerWorld = whoToBan.getWorld().getName();
         ArrayList<String> lore_com = new ArrayList<>();
         lore_com.add(ChatColor.GREEN + "This is the player you are going to ban!");
+        lore_com.add(ChatColor.WHITE + "Player's World: " + playerWorld);
         sm.setLore(lore_com);
         playerHead.setItemMeta(sm);
         confirmBanMenu.setItem(4, playerHead);
@@ -157,6 +160,27 @@ public class BanMenuUtils implements Listener {
         kick_meta.setLore(lore_kik);
         kick.setItemMeta(kick_meta);
         confirmBanMenu.setItem(1, kick);
+
+
+        //blind player
+        ItemStack blind = new ItemStack(Material.INK_SAC, 1);
+        ItemMeta blind_meta = blind.getItemMeta();
+        blind_meta.setDisplayName(ChatColor.DARK_PURPLE + "BLIND!");
+        blind_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        ArrayList<String> lore_blid = new ArrayList<>();
+        blind_meta.setLore(lore_blid);
+        blind.setItemMeta(blind_meta);
+        confirmBanMenu.setItem(3, blind);
+
+        //Cleanse player
+        ItemStack cleanse = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
+        ItemMeta cleanse_meta = blind.getItemMeta();
+        cleanse_meta.setDisplayName(ChatColor.YELLOW + "Cleanse!");
+        cleanse_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        ArrayList<String> lore_cleanse = new ArrayList<>();
+        cleanse_meta.setLore(lore_cleanse);
+        cleanse.setItemMeta(cleanse_meta);
+        confirmBanMenu.setItem(5, cleanse);
 
         p.openInventory(confirmBanMenu);
     }
