@@ -21,9 +21,6 @@ public class BanInvListener implements Listener {
         this.banMenu = banMenu;
     }
 
-    @EventHandler
-    public void playerMoveEvent(PlayerMoveEvent pme) {}
-
 
     @EventHandler
 
@@ -101,6 +98,7 @@ public class BanInvListener implements Listener {
                     } else if (e.getCurrentItem().getType() == Material.ICE) {
                         String name = ChatColor.stripColor(e.getClickedInventory().getItem(4).getItemMeta().getDisplayName());
                         Player playerwhoisban = Bukkit.getPlayer(name);
+                        playerwhoisban.addPotionEffect((new PotionEffect(PotionEffectType.SLOW,20000,50)));
                         p.sendMessage(ChatColor.GREEN + "Froze" + name + "!");
                         System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just Froze" + " " + name + "!");
                         p.playNote(p.getEyeLocation(), Instrument.PIANO, Note.flat(1, Note.Tone.A));
@@ -111,6 +109,7 @@ public class BanInvListener implements Listener {
             }
         }
     }
+
 
 
 
