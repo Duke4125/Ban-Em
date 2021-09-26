@@ -21,6 +21,9 @@ public class BanInvListener implements Listener {
         this.banMenu = banMenu;
     }
 
+    @EventHandler
+    public void playerMoveEvent(PlayerMoveEvent pme) {}
+
 
     @EventHandler
 
@@ -90,6 +93,7 @@ public class BanInvListener implements Listener {
                         playerwhoisban.removePotionEffect(PotionEffectType.BLINDNESS);
                         playerwhoisban.removePotionEffect(PotionEffectType.SLOW);
                         playerwhoisban.removePotionEffect(PotionEffectType.INVISIBILITY);
+                        playerwhoisban.playEffect(playerwhoisban.getEyeLocation(), Effect.DRAGON_BREATH, 0);
                         //playerwhoisban.setGameMode(GameMode.SURVIVAL);
                         p.sendMessage(ChatColor.GREEN + "Cleansed" + name + "!");
                         System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just Cleansed" + " " + name + "!");
@@ -109,7 +113,6 @@ public class BanInvListener implements Listener {
             }
         }
     }
-
 
 
 
