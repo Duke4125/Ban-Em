@@ -174,13 +174,23 @@ public class BanMenuUtils implements Listener {
 
         //Cleanse player
         ItemStack cleanse = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
-        ItemMeta cleanse_meta = blind.getItemMeta();
+        ItemMeta cleanse_meta = cleanse.getItemMeta();
         cleanse_meta.setDisplayName(ChatColor.YELLOW + "Cleanse!");
         cleanse_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         ArrayList<String> lore_cleanse = new ArrayList<>();
         cleanse_meta.setLore(lore_cleanse);
         cleanse.setItemMeta(cleanse_meta);
         confirmBanMenu.setItem(5, cleanse);
+
+        //Freeze player
+        ItemStack freeze = new ItemStack(Material.ICE, 1);
+        ItemMeta freeze_meta = freeze.getItemMeta();
+        freeze_meta.setDisplayName(ChatColor.AQUA + "Freeze!");
+        freeze_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        ArrayList<String> lore_freeze = new ArrayList<>();
+        freeze_meta.setLore(lore_freeze);
+        freeze.setItemMeta(cleanse_meta);
+        confirmBanMenu.setItem(6, freeze);
 
         p.openInventory(confirmBanMenu);
     }

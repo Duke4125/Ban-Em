@@ -95,6 +95,7 @@ public final class Duke extends JavaPlugin {
 
 
 
+
         Logger logger = this.getLogger();
 
         new UpdateChecker(this, 95286).getVersion(version -> {
