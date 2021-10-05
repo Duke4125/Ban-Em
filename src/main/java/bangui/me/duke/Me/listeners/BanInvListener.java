@@ -103,6 +103,8 @@ public class BanInvListener implements Listener {
                         System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just Froze" + " " + name + "!");
                         p.playNote(p.getEyeLocation(), Instrument.PIANO, Note.flat(1, Note.Tone.A));
                         e.setCancelled(true);
+                    } else if (e.getCurrentItem() == null) {
+                        return;
                     }
                     e.setCancelled(true);
                 }
