@@ -106,6 +106,7 @@ public class BanInvListener implements Listener {
                         p.sendMessage(ChatColor.GREEN + "Froze" + name + "!");
                         System.out.println(ChatColor.WHITE + "[" + ChatColor.RED + "BAN EM" + ChatColor.WHITE + "]" + " " + ChatColor.RED + "Just Froze" + " " + name + "!");
                         p.playNote(p.getEyeLocation(), Instrument.PIANO, Note.flat(1, Note.Tone.A));
+                        playerwhoisban.sendMessage(ChatColor.AQUA + "You have been frozen by a member of staff!");
                         e.setCancelled(true);
                     } else if (e.getCurrentItem() == null) {
                         return;
