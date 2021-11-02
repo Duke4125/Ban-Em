@@ -1,12 +1,10 @@
 # WELCOME TO BAN-EM's CONFIG!
 # IN HERE YOU CAN EDIT THE PLUGIN VIA USING "True" OR "False" Statements!
 # OR YOU CAN USE WORDS WHEN ABOVE THE SETTING IT WILL SAY (S) = String!
-# WARN FEATURE IS NOT WORKING TO FULL STANDORD! THERE MAY BE BUGS!!!!!!!!!
 # USE & CHAT COLORS IN STRINGS!
 
 #(S)
 Noperm: '&cYOU DO NOT HAVE THE PERM TO USE THIS!'
-
 
 #(S)
 ReloadMessage: '&cYou have reloaded BanEm!'
@@ -19,25 +17,3 @@ BanReason: 'You have been struck down by Ban-EM'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#DO NOT CHANGE!
-
-#Config VER: 1.0
-#Plugin VER: 1.0

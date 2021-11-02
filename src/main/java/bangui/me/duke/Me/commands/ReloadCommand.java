@@ -23,7 +23,7 @@ public class ReloadCommand implements CommandExecutor {
             Player p = (Player) sender;
             if (p.hasPermission("ban-em.reload")) {
 
-               plugin.reloadConfig();
+                plugin.reloadConfig();
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("ReloadMessage")));
             }else {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));

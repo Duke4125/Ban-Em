@@ -21,7 +21,7 @@ public class InfoCommand implements CommandExecutor {
                 
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
                 p.sendMessage(ChatColor.RED + "Ban-EM Info!");
-                p.sendMessage(ChatColor.WHITE + "VER 1.1");
+                p.sendMessage(ChatColor.WHITE + "VER 1.2");
                 p.sendMessage(ChatColor.DARK_RED + "");
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
 
