@@ -1,6 +1,6 @@
 package bangui.me.duke.Me.listeners;
 
-import bangui.me.duke.Me.Duke;
+import bangui.me.duke.Me.Main;
 import bangui.me.duke.Me.utils.BanMenuUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -11,14 +11,12 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.net.UnknownHostException;
-
 
 public class BanInvListener implements Listener {
-    Duke plugin;
+    Main plugin;
     BanMenuUtils banMenu;
 
-    public BanInvListener(Duke plugin, BanMenuUtils banMenu) {
+    public BanInvListener(Main plugin, BanMenuUtils banMenu) {
         this.plugin = plugin;
         this.banMenu = banMenu;
     }

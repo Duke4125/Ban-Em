@@ -1,6 +1,6 @@
 package bangui.me.duke.Me.commands;
 
-import bangui.me.duke.Me.Duke;
+import bangui.me.duke.Me.Main;
 import bangui.me.duke.Me.utils.BanMenuUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -13,10 +13,10 @@ import java.util.Objects;
 
 public class BanGUICommand implements CommandExecutor {
 
-    Duke plugin;
+    Main plugin;
     BanMenuUtils  banMenu;
 
-    public BanGUICommand(Duke plugin, BanMenuUtils banMenu) {
+    public BanGUICommand(Main plugin, BanMenuUtils banMenu) {
         this.plugin = plugin;
         this.banMenu = banMenu;
     }

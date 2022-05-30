@@ -1,6 +1,6 @@
 package bangui.me.duke.Me.commands;
 
-import bangui.me.duke.Me.Duke;
+import bangui.me.duke.Me.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 import java.util.Objects;
 
 public class InfoCommand implements CommandExecutor {
-    Duke plugin;
-    public InfoCommand(Duke plugin){
+    Main plugin;
+    public InfoCommand(Main plugin){
         this.plugin = plugin;
     }
 

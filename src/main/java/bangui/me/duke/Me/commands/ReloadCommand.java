@@ -1,7 +1,7 @@
 package bangui.me.duke.Me.commands;
 
 
-import bangui.me.duke.Me.Duke;
+import bangui.me.duke.Me.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,8 +12,8 @@ import java.util.Objects;
 
 
 public class ReloadCommand implements CommandExecutor {
-    Duke plugin;
-    public ReloadCommand(Duke plugin){
+    Main plugin;
+    public ReloadCommand(Main plugin){
         this.plugin = plugin;
     }
 
