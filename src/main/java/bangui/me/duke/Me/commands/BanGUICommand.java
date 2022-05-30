@@ -8,7 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-
+import java.util.Objects;
 
 
 public class BanGUICommand implements CommandExecutor {
@@ -29,7 +29,7 @@ public class BanGUICommand implements CommandExecutor {
 
                 banMenu.openMenu(p);
             } else {
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("Noperm"))));
             }
         }
         return true;

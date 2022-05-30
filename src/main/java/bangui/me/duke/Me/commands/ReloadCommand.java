@@ -8,7 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-
+import java.util.Objects;
 
 
 public class ReloadCommand implements CommandExecutor {
@@ -24,9 +24,9 @@ public class ReloadCommand implements CommandExecutor {
             if (p.hasPermission("ban-em.reload")) {
 
                 plugin.reloadConfig();
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("ReloadMessage")));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("ReloadMessage"))));
             }else {
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("Noperm"))));
             }
         }
         return true;

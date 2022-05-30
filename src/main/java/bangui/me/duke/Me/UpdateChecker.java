@@ -1,7 +1,6 @@
 package bangui.me.duke.Me;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Consumer;
 
@@ -12,8 +11,8 @@ import java.util.Scanner;
 
 public class UpdateChecker {
 
-    private JavaPlugin plugin;
-    private int resourceId;
+    private final JavaPlugin plugin;
+    private final int resourceId;
 
     public UpdateChecker(JavaPlugin plugin, int resourceId) {
         this.plugin = plugin;

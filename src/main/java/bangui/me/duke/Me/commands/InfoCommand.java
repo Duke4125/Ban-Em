@@ -7,6 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 public class InfoCommand implements CommandExecutor {
     Duke plugin;
     public InfoCommand(Duke plugin){
@@ -21,12 +23,12 @@ public class InfoCommand implements CommandExecutor {
                 
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
                 p.sendMessage(ChatColor.RED + "Ban-EM Info!");
-                p.sendMessage(ChatColor.WHITE + "VER 1.2");
+                p.sendMessage(ChatColor.WHITE + "VER 1.3");
                 p.sendMessage(ChatColor.DARK_RED + "");
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
 
             }else {
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Noperm")));
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(plugin.getConfig().getString("Noperm"))));
             }
         }
         return true;

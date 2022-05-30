@@ -29,6 +29,7 @@ import org.bukkit.ChatColor;
 import bangui.me.duke.Me.commands.ReloadCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public final class Duke extends JavaPlugin {
@@ -83,13 +84,13 @@ public final class Duke extends JavaPlugin {
 
         BanMenuUtils banMenu = new BanMenuUtils(this);
 
-        getCommand("banem").setExecutor(new BanGUICommand(this, banMenu));
+        Objects.requireNonNull(getCommand("banem")).setExecutor(new BanGUICommand(this, banMenu));
 
-        getCommand("BanemReload").setExecutor(new ReloadCommand(this));
+        Objects.requireNonNull(getCommand("BanemReload")).setExecutor(new ReloadCommand(this));
 
-        getCommand("BanemHelp").setExecutor(new HelpCommand(this));
+        Objects.requireNonNull(getCommand("BanemHelp")).setExecutor(new HelpCommand(this));
 
-        getCommand("Baneminfo").setExecutor(new InfoCommand(this));
+        Objects.requireNonNull(getCommand("Baneminfo")).setExecutor(new InfoCommand(this));
 
         getServer().getPluginManager().registerEvents(new BanInvListener(this, banMenu), this);
 
