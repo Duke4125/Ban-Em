@@ -1,7 +1,7 @@
-package bangui.me.duke.Me.commands;
+package bangui.me.main.Me.commands;
 
-import bangui.me.duke.Me.Main;
-import bangui.me.duke.Me.utils.BanMenuUtils;
+import bangui.me.main.Me.Main;
+import bangui.me.main.Me.utils.BanMenuUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -1,4 +1,4 @@
-package bangui.me.duke.Me;
+package bangui.me.main.Me;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

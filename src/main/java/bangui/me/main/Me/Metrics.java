@@ -1,4 +1,4 @@
-package bangui.me.duke.Me;
+package bangui.me.main.Me;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

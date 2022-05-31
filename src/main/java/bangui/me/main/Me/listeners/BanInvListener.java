@@ -1,7 +1,7 @@
-package bangui.me.duke.Me.listeners;
+package bangui.me.main.Me.listeners;
 
-import bangui.me.duke.Me.Main;
-import bangui.me.duke.Me.utils.BanMenuUtils;
+import bangui.me.main.Me.Main;
+import bangui.me.main.Me.utils.BanMenuUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

@@ -18,15 +18,15 @@ If you do any of these you are breaking the TOS and this is a legal issue!
 
 
 
-package bangui.me.duke.Me;
+package bangui.me.main.Me;
 
-import bangui.me.duke.Me.commands.BanGUICommand;
-import bangui.me.duke.Me.commands.HelpCommand;
-import bangui.me.duke.Me.commands.InfoCommand;
-import bangui.me.duke.Me.listeners.BanInvListener;
-import bangui.me.duke.Me.utils.BanMenuUtils;
+import bangui.me.main.Me.commands.BanGUICommand;
+import bangui.me.main.Me.commands.HelpCommand;
+import bangui.me.main.Me.commands.InfoCommand;
+import bangui.me.main.Me.listeners.BanInvListener;
+import bangui.me.main.Me.utils.BanMenuUtils;
 import org.bukkit.ChatColor;
-import bangui.me.duke.Me.commands.ReloadCommand;
+import bangui.me.main.Me.commands.ReloadCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;

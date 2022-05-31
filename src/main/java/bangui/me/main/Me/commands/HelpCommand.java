@@ -1,6 +1,6 @@
-package bangui.me.duke.Me.commands;
+package bangui.me.main.Me.commands;
 
-import bangui.me.duke.Me.Main;
+import bangui.me.main.Me.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-public class InfoCommand implements CommandExecutor {
+public class HelpCommand implements CommandExecutor {
     Main plugin;
-    public InfoCommand(Main plugin){
+    public HelpCommand(Main plugin){
         this.plugin = plugin;
     }
 
@@ -20,11 +20,18 @@ public class InfoCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if (p.hasPermission("ban-em.open")) {
-                
+
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
-                p.sendMessage(ChatColor.RED + "Ban-EM Info!");
-                p.sendMessage(ChatColor.WHITE + "VER 1.3");
-                p.sendMessage(ChatColor.DARK_RED + "");
+                p.sendMessage(ChatColor.RED + "Ban-EM Help!");
+                p.sendMessage(ChatColor.WHITE + " ");
+                p.sendMessage(ChatColor.DARK_RED + "Commands:");
+                p.sendMessage(ChatColor.RED + "/banem - opens the banem menu!");
+                p.sendMessage(ChatColor.RED + "/banemreload - reloads the plugin");
+                p.sendMessage(ChatColor.WHITE + " ");
+                p.sendMessage(ChatColor.DARK_RED + "How to get support:");
+                p.sendMessage(ChatColor.RED + "Join the support discord - https://discord.gg/tr8Wku6NrE%22");
+                        p.sendMessage(ChatColor.WHITE + " ");
+                p.sendMessage(ChatColor.RED + "Plugin made by Dukx AKA Duke have questions? Dm Dukx#6969 on discord!");
                 p.sendMessage(ChatColor.WHITE + "------------------------------------------------------------------------");
 
             }else {
